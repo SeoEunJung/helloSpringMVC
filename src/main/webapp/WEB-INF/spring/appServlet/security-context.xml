@@ -19,9 +19,13 @@
 
 	<security:http auto-config="true" use-expressions="true">
 	<security:intercept-url pattern="/" access="permitAll" />
+	<security:intercept-url pattern="/login" access="permitAll" />
+		<security:intercept-url pattern="/logout" access="permitAll" />
 	<security:intercept-url pattern="/offers" access="permitAll" />
 	<security:intercept-url pattern="/createoffer" access="isAuthenticated()" />
 	<security:intercept-url pattern="/resources/**" access="permitAll" />
 	<security:intercept-url pattern="/**" access="denyAll" />
+	<security:form-login login-page="/login" />
+	<security:logout />
 	</security:http>
 </beans>
